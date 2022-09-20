@@ -1,31 +1,7 @@
-const Header = (props) => {
-  return (
-    <>
-      <h1>{props.course}</h1>
-    </>
-  )
-}
 
-const Part = (props) => {
-  return (
-    <><p>{props.part} {props.exercise}</p></>
-  )
-}
-
-const Total = (props) => {
-  return (
-    <>
-    <p>Number of exercises {(() => {
-            let cnt = 0;
-            for (let i = 0; i < props.exercises.length; i++) {
-              cnt += props.exercises[i]
-            } 
-            return cnt;
-        })()}</p>
-        
-    </>
-  )
-}
+import Header from "./components/Header/Header"
+import Total from "./components/Total/Total"
+import Content from "./components/Content/Content"
 
 const App = () => {
   const course = 'Half Stack application development'
@@ -39,9 +15,7 @@ const App = () => {
   return (
     <div>
       <Header course={course} />
-      <Part part = {part1} exercise = {exercises1} />
-      <Part part = {part2} exercise = {exercises2} />
-      <Part part = {part3} exercise = {exercises3} />
+      <Content part1 = {part1} exercise1 = {exercises1} part2 = {part2} exercise2 = {exercises2} part3 = {part3} exercise3 = {exercises3} />
       <Total exercises = {[exercises1, exercises2, exercises3]} />
     </div>
   )
