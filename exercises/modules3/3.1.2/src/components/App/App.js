@@ -23,6 +23,10 @@ const Statistics = ({good, neutral, bad}) => {
   )
 }
 
+const Loading = ({message}) => {
+  return <p>{message}</p>
+}
+
 const App = () => {
   
   const anecdotes = [
@@ -41,6 +45,14 @@ const App = () => {
   const [selected, setSelected] = useState(0)
 
   const [vote, setVote] = useState(Array(anecdotes.length).fill(0))
+
+  const [loading, setLoading] = useState(0);
+
+  setTimeout(() => setLoading(!loading), 3000)
+
+  if (loading) {
+    return <Loading message="Chargement"></Loading>
+  }
 
   return (
     <div>
